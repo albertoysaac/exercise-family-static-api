@@ -77,7 +77,7 @@ def test_get_single_member_has_keys(client):
     data = json.loads(response.data)
 
     assert data is not None
-    assert "first_name" in data
+    assert "name" in data
     assert "id" in data
     assert "age" in data
     assert "lucky_numbers" in data
@@ -87,8 +87,8 @@ def test_get_first_member_tommy(client):
     response = client.get('/member/3443')
     data = json.loads(response.data)
     assert data is not None
-    assert "first_name" in data
-    assert data["first_name"] == "Tommy"
+    assert "name" in data
+    assert data["name"] == "Tommy"
 
 @pytest.mark.it("Implement method DELETE /member/<int:id> to delete a family member")
 def test_delete_member(client):
